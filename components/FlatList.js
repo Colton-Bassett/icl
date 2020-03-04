@@ -23,37 +23,16 @@ export class MyList extends Component {
         };
     }
     actionOnRow(item) {
-      // Works on both Android and iOS
-      //this.props.navigation.navigate('Screen5')
-      {/*this.props.navigation.navigate('Screen5', {
-        classData: item
-      });
-      */}
-      this.props.navigation.push('Screen5', {
+        // Passing class data (for clicked row) to ClassDetails for display
+        this.props.navigation.push('ClassDetails', {
         classData: item,
-      })
-      {/* 
-      Alert.alert(
-        'Alert Title',
-        'My Alert Msg',
-        [
-          {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-          {
-            text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
-        ],
-        {cancelable: false},
-      );*/}
+        });
     }
 
     renderItem = ({item}) => {
         return  ( 
-          <TouchableWithoutFeedback onPress={ () => this.actionOnRow(item)}>
+            <TouchableWithoutFeedback onPress={ () => this.actionOnRow(item)}>
                 <View style={styles.itemContainer}>
-
                     <View style={styles.item}>
                         <Text style={styles.title}> {item.title}</Text>
                         <Text style={styles.body}> {item.building}</Text>
@@ -63,10 +42,8 @@ export class MyList extends Component {
                         <Text style={styles.bodyRight}> {item.time}</Text>
                     </View>    
                 </View>
-          </TouchableWithoutFeedback>
-
-        );
-        
+            </TouchableWithoutFeedback>
+        );    
     };
 
     render() {
@@ -84,8 +61,8 @@ export class MyList extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      margin: 5
+        flex: 1,
+        margin: 5
     },
     item: {
       paddingTop: 10,
@@ -100,15 +77,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
     title: {
-      fontSize: 16,
-      marginHorizontal: 16,
-      fontWeight: '700'
+        fontSize: 16,
+        marginHorizontal: 16,
+        fontWeight: '700'
     },
     body: {
-      fontSize: 14,
-      marginHorizontal: 16,
-      fontWeight: '300',
-      color: '#707070'
+        fontSize: 14,
+        marginHorizontal: 16,
+        fontWeight: '300',
+        color: '#707070'
     },
     bodyRight: {
         fontSize: 14,
@@ -119,7 +96,7 @@ const styles = StyleSheet.create({
 
       },
     contentContainer: {
-      backgroundColor: 'white',
+        backgroundColor: 'white',
     },
     itemContainer: {
         flexDirection: 'row',
