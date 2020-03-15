@@ -5,6 +5,7 @@ import {
     createStackNavigator
 } from '@react-navigation/stack';
 import StackNavigator from './StackNavigator';
+import DiscountStackNavigator from './DiscountStackNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
@@ -17,14 +18,24 @@ const Drawer = createDrawerNavigator();
 );
 */}
 
+function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem label="Help" onPress={() => alert('Link to help')} />
+      </DrawerContentScrollView>
+    );
+  }
+
 
 export default class DrawerNavigator extends Component {
     render() {
         return (
             <NavigationContainer>
-                <Drawer.Navigator initialRouteName="Home">
-                    <Drawer.Screen name="Stack" component={StackNavigator}/>
-                    <Drawer.Screen name="Stack 2" component={StackNavigator}/>
+                <Drawer.Navigator initialRouteName="Classes"> 
+               
+                    <Drawer.Screen name="Classes" component={StackNavigator}/>
+                    <Drawer.Screen name="Discounts" component={DiscountStackNavigator}/>
                 </Drawer.Navigator>
             </NavigationContainer>
         )

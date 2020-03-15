@@ -5,11 +5,9 @@ import {
 
 import HomeScreen from './HomeScreen';
 import Screen4 from './Screen4';
-import ClassDetails from './ClassDetails';
-import { View, Text, Button, Image } from 'react-native';
+import DiscountDetails from './DiscountDetails';
 //import { NavigationContainer } from '@react-navigation/native';
-import { MyList } from './FlatList.js';
-import { NavigationContainer } from '@react-navigation/native';
+import { MyList } from './DiscountFlatList.js';
 
 const Stack = createStackNavigator();
 {/* 
@@ -22,16 +20,7 @@ const Stack = createStackNavigator();
 }
 );
 */}
-
-function LogoTitle() {
-    return (
-      <Image
-        style={{ width: 50, height: 50 }}
-        source={require('../icons/menu.png')}
-      />
-    );
-  }
-export default class StackNavigator extends Component {
+export default class DiscountStackNavigator extends Component {
     render() {
         return (
             <Stack.Navigator
@@ -43,9 +32,8 @@ export default class StackNavigator extends Component {
                 headerTintColor: '#fff',
             }}
             >
-                <Stack.Screen name="Classes" component={MyList} 
-                />
-                <Stack.Screen name="ClassDetails" component={ClassDetails} options={{ title: 'Class Details' }}/>
+                <Stack.Screen name="Discounts" component={MyList}/>
+                <Stack.Screen name="DiscountDetails" component={DiscountDetails} options={{ title: 'Discount Details' }}/>
             </Stack.Navigator>  
         )
     }
