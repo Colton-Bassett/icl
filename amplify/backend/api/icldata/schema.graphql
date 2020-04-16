@@ -5,4 +5,6 @@ type Course @model {
   building: String
   date: String
   time: String
+  isCourse: Boolean
+  info: String
 }

@@ -8,6 +8,8 @@ export type CreateCourseInput = {
   building?: string | null,
   date?: string | null,
   time?: string | null,
+  isCourse?: boolean | null,
+  info?: string | null,
 };
 
 export type ModelCourseConditionInput = {
@@ -15,6 +17,8 @@ export type ModelCourseConditionInput = {
   building?: ModelStringInput | null,
   date?: ModelStringInput | null,
   time?: ModelStringInput | null,
+  isCourse?: ModelBooleanInput | null,
+  info?: ModelStringInput | null,
   and?: Array< ModelCourseConditionInput | null > | null,
   or?: Array< ModelCourseConditionInput | null > | null,
   not?: ModelCourseConditionInput | null,
@@ -60,12 +64,21 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type UpdateCourseInput = {
   id: string,
   title?: string | null,
   building?: string | null,
   date?: string | null,
   time?: string | null,
+  isCourse?: boolean | null,
+  info?: string | null,
 };
 
 export type DeleteCourseInput = {
@@ -78,6 +91,8 @@ export type ModelCourseFilterInput = {
   building?: ModelStringInput | null,
   date?: ModelStringInput | null,
   time?: ModelStringInput | null,
+  isCourse?: ModelBooleanInput | null,
+  info?: ModelStringInput | null,
   and?: Array< ModelCourseFilterInput | null > | null,
   or?: Array< ModelCourseFilterInput | null > | null,
   not?: ModelCourseFilterInput | null,
@@ -112,6 +127,8 @@ export type CreateCourseMutation = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -128,6 +145,8 @@ export type UpdateCourseMutation = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -144,6 +163,8 @@ export type DeleteCourseMutation = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -159,6 +180,8 @@ export type GetCourseQuery = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -178,6 +201,8 @@ export type ListCoursesQuery = {
       building: string | null,
       date: string | null,
       time: string | null,
+      isCourse: boolean | null,
+      info: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -191,6 +216,8 @@ export type OnCreateCourseSubscription = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -202,6 +229,8 @@ export type OnUpdateCourseSubscription = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };
 
@@ -213,5 +242,7 @@ export type OnDeleteCourseSubscription = {
     building: string | null,
     date: string | null,
     time: string | null,
+    isCourse: boolean | null,
+    info: string | null,
   } | null,
 };

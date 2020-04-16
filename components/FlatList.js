@@ -19,13 +19,15 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 const ListCourses = `
 query {
-    listCourses {
+    listCourses(limit: 100) {
         items {
-            id title building date time
+            id title building date time isCourse
     }
 }
 }
 `;
+
+
 
 export class MyList extends Component {
     constructor() {
@@ -35,6 +37,19 @@ export class MyList extends Component {
             courses: []
         };
     }
+
+    sortData(courses) {
+        var courselist = []
+        console.log("sortData FlatList:", courses.length)
+        for (i = 0; i < courses.length; i++) {
+            if (courses[i].isCourse) {
+                courselist.push(courses[i])
+            }
+        };
+
+        return courselist
+    };
+
     actionOnRow(item) {
         // Passing class data (for clicked row) to ClassDetails for display
         this.props.navigation.push('ClassDetails', {
@@ -62,8 +77,9 @@ export class MyList extends Component {
     async componentDidMount() {
         try {
             const courses = await API.graphql(graphqlOperation(ListCourses));
-            this.setState({ courses: courses['data']['listCourses']['items'] });
-            console.log("state courses", this.state.courses)
+            var c = courses['data']['listCourses']['items'];
+            this.setState({courses: this.sortData(c)});
+            //console.log("state courses", this.state.courses)
 
         } catch (err) {
             console.log('error: ', err);

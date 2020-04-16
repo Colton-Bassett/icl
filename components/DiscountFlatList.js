@@ -20,9 +20,9 @@ import { API, graphqlOperation } from 'aws-amplify';
 
 const ListDiscounts = `
 query {
-    listCourses {
+    listCourses(limit: 100) {
         items {
-            id title building date time
+            id title building date time isCourse info
     }
 }
 }
@@ -43,6 +43,19 @@ export class MyList extends Component {
         });
     }
 
+    sortData(discounts) {
+        var discountlist = []
+        console.log("sortData:", discountlist.length)
+        for (i = 0; i < discounts.length; i++) {
+            if (!discounts[i].isCourse) {
+                discountlist.push(discounts[i])
+            }
+        };
+        console.log("sortData:", discountlist)
+        return discountlist
+        
+    };
+
     renderItem = ({item}) => {
         return  ( 
             <TouchableWithoutFeedback onPress={ () => this.actionOnRow(item)}>
@@ -58,10 +71,15 @@ export class MyList extends Component {
 
     async componentDidMount() {
         try {
+            // const discounts = await API.graphql(graphqlOperation(ListDiscounts));
+            // console.log(discounts)
+            // this.setState({ discounts: discounts['data']['listCourses']['items'] });
+            // console.log("state discounts", this.state.discounts)
+
             const discounts = await API.graphql(graphqlOperation(ListDiscounts));
-            console.log(discounts)
-            this.setState({ discounts: discounts['data']['listCourses']['items'] });
-            console.log("state discounts", this.state.discounts)
+            var d = discounts['data']['listCourses']['items'];
+            this.setState({discounts: this.sortData(d)});
+            //console.log("state courses", this.state.courses)
 
         } catch (err) {
             console.log('error: ', err);

@@ -10,6 +10,8 @@ export const onCreateCourse = /* GraphQL */ `
       building
       date
       time
+      isCourse
+      info
     }
   }
 `;
@@ -21,6 +23,8 @@ export const onUpdateCourse = /* GraphQL */ `
       building
       date
       time
+      isCourse
+      info
     }
   }
 `;
@@ -32,6 +36,8 @@ export const onDeleteCourse = /* GraphQL */ `
       building
       date
       time
+      isCourse
+      info
     }
   }
 `;

@@ -10,6 +10,8 @@ export const getCourse = /* GraphQL */ `
       building
       date
       time
+      isCourse
+      info
     }
   }
 `;
@@ -26,6 +28,8 @@ export const listCourses = /* GraphQL */ `
         building
         date
         time
+        isCourse
+        info
       }
       nextToken
     }
