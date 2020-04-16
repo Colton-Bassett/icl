@@ -11,15 +11,28 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from 'react-native';
-import Data from './Data';
+
+import Amplify from '@aws-amplify/core';
+import config from '../aws-exports';
+Amplify.configure(config);
+import { API, graphqlOperation } from 'aws-amplify';
+
+const ListCourses = `
+query {
+    listCourses {
+        items {
+            id title building date time
+    }
+}
+}
+`;
 
 export class MyList extends Component {
     constructor() {
         super();
         // super(props)
-        this.initData = Data
         this.state = {
-            data: this.initData
+            courses: []
         };
     }
     actionOnRow(item) {
@@ -46,11 +59,22 @@ export class MyList extends Component {
         );    
     };
 
+    async componentDidMount() {
+        try {
+            const courses = await API.graphql(graphqlOperation(ListCourses));
+            this.setState({ courses: courses['data']['listCourses']['items'] });
+            console.log("state courses", this.state.courses)
+
+        } catch (err) {
+            console.log('error: ', err);
+        }
+    }
+
     render() {
         return(
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.data}
+                    data={this.state.courses}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={this.renderItem}
                 />

@@ -1,4 +1,6 @@
 import 'react-native-gesture-handler';
+
+
 import React from 'react';
 import {
     SafeAreaView,
@@ -25,12 +27,12 @@ import DrawerNavigator from "./components/DrawerNavigator.js"
 
 declare var global: {HermesInternal: null | {}}; 
 
-
 const App = () => {
     return (
         <>
             <DrawerNavigator />
         </>
+        
     );
 };
 

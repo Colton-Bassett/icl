@@ -1,0 +1,8 @@
+
+type Course @model {
+  id: ID!
+  title: String!
+  building: String
+  date: String
+  time: String
+}

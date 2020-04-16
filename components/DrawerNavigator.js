@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Props} from 'react';
 import { createDrawerNavigator, createAppContainer 
 } from '@react-navigation/drawer';
 import { 
@@ -33,8 +33,7 @@ export default class DrawerNavigator extends Component {
         return (
             <NavigationContainer>
                 <Drawer.Navigator initialRouteName="Classes"> 
-               
-                    <Drawer.Screen name="Classes" component={StackNavigator}/>
+                    <Drawer.Screen name="Classes" component={StackNavigator} />
                     <Drawer.Screen name="Discounts" component={DiscountStackNavigator}/>
                 </Drawer.Navigator>
             </NavigationContainer>

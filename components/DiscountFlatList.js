@@ -13,13 +13,27 @@ import {
 } from 'react-native';
 import DiscountData from './DiscountData';
 
+import Amplify from '@aws-amplify/core';
+import config from '../aws-exports';
+Amplify.configure(config);
+import { API, graphqlOperation } from 'aws-amplify';
+
+const ListDiscounts = `
+query {
+    listCourses {
+        items {
+            id title building date time
+    }
+}
+}
+`;
+
 export class MyList extends Component {
     constructor() {
         super();
         // super(props)
-        this.initData = DiscountData
         this.state = {
-            data: this.initData
+            discounts: []
         };
     }
     actionOnRow(item) {
@@ -42,11 +56,23 @@ export class MyList extends Component {
         );    
     };
 
+    async componentDidMount() {
+        try {
+            const discounts = await API.graphql(graphqlOperation(ListDiscounts));
+            console.log(discounts)
+            this.setState({ discounts: discounts['data']['listCourses']['items'] });
+            console.log("state discounts", this.state.discounts)
+
+        } catch (err) {
+            console.log('error: ', err);
+        }
+    }
+
     render() {
         return(
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.data}
+                    data={this.state.discounts}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={this.renderItem}
                 />

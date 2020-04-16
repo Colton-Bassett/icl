@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Props} from 'react';
 import { 
     createStackNavigator, createAppContainer, DrawerActions
 } from '@react-navigation/stack';
@@ -31,7 +31,13 @@ function LogoTitle() {
       />
     );
   }
+
 export default class StackNavigator extends Component {
+    constructor() {
+        super();
+        // super(props)
+    }
+
     render() {
         return (
             <Stack.Navigator

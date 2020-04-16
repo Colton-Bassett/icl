@@ -16,6 +16,7 @@ export default class ClassDetails extends Component {
     constructor(props) {
         super(props)
         console.log(props.route.params.classData)
+        //console.log("state courses", this.state.courses)
     }
     render() {
         return (
