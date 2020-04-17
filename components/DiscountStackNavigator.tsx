@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { 
-    createStackNavigator, createAppContainer, DrawerActions
+    createStackNavigator
 } from '@react-navigation/stack';
 
-import HomeScreen from './HomeScreen';
-import Screen4 from './Screen4';
 import DiscountDetails from './DiscountDetails';
+import { View, Text, Button, Image, Alert, TouchableOpacity } from 'react-native';
 //import { NavigationContainer } from '@react-navigation/native';
 import { MyList } from './DiscountFlatList.js';
 
@@ -32,7 +31,20 @@ export default class DiscountStackNavigator extends Component {
                 headerTintColor: '#fff',
             }}
             >
-                <Stack.Screen name="Discounts" component={MyList}/>
+                <Stack.Screen name="Discounts" component={MyList}
+                options={{
+                    headerLeft: () => (
+                        <TouchableOpacity activeOpacity = { .5 } onPress={this.props.navigation.openDrawer}
+                        style={{ marginLeft: 10}}
+                        > 
+                        
+                        <Image 
+                        source={require('../icons/menu.png')}  />          
+                        </TouchableOpacity>
+    
+                    )
+                }}
+                />
                 <Stack.Screen name="DiscountDetails" component={DiscountDetails} options={{ title: 'Discount Details' }}/>
             </Stack.Navigator>  
         )

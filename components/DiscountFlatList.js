@@ -11,7 +11,7 @@ import {
   TouchableWithoutFeedback,
   Alert,
 } from 'react-native';
-import DiscountData from './DiscountData';
+
 
 import Amplify from '@aws-amplify/core';
 import config from '../aws-exports';

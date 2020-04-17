@@ -23,9 +23,9 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import DrawerNavigator from "./components/DrawerNavigator.js"
+import DrawerNavigator from "./components/DrawerNavigator"
 
-declare var global: {HermesInternal: null | {}}; 
+//declare var global: {HermesInternal: null | {}}; 
 
 const App = () => {
     return (

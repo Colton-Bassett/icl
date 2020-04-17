@@ -80,6 +80,7 @@ export class MyList extends Component {
             var c = courses['data']['listCourses']['items'];
             this.setState({courses: this.sortData(c)});
             //console.log("state courses", this.state.courses)
+            //this.props.navigation.openDrawer()
 
         } catch (err) {
             console.log('error: ', err);
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     },
     item: {
       paddingTop: 10,
-      paddingBottom: 20,
+      paddingBottom: 15,
       marginVertical: 8,
     },
     item2: {
