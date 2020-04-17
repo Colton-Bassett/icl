@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
     bigImage: {
         width: 100,
         height: 100,
-
       },
     smallImage: {
         alignItems: 'center',

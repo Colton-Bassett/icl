@@ -9,16 +9,7 @@ import { View, Text, Button, Image, Alert, TouchableOpacity } from 'react-native
 import { MyList } from './DiscountFlatList.js';
 
 const Stack = createStackNavigator();
-{/* 
-{
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-        headerStyle: { height: 55, backgroundColor: 'Orange'},
-        headerTitleStyle: {fontWeight: 'bold', color: 'white'},
-    }
-}
-);
-*/}
+
 export default class DiscountStackNavigator extends Component {
     render() {
         return (
