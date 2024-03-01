@@ -1,6 +1,6 @@
 # "ICL" Academic Resource Prototype
 
-ICL (Institute of Continued Learning) serves as an academic resource prototype developed for the non-profit educational organization at Utah Tech University. The app offers comprehensive academic support to teachers and students, featuring class listings, schedules, locations, campus maps, and course overviews. With a strong commitment to accessibility, it caters specifically to the needs of lifelong learners, focusing on WCAG guidelines, screen readers, and larger font support. Built with React Native and AWS Amplify, this prototype ensures a seamless and user-friendly experience for all users.
+ICL serves as an academic resource app developed for The Institute of Continued Learning at Utah Tech University. The app offers comprehensive academic support to teachers and students, featuring class listings, schedules, locations, campus maps, and course overviews. With a strong commitment to accessibility, it caters specifically to the needs of lifelong learners, focusing on WCAG guidelines, screen readers, and larger font support. Built with React Native and AWS Amplify, this prototype ensures a seamless and user-friendly experience for all users.
 
 ## Project Goals
 
